@@ -36,5 +36,17 @@ turtle_t.pendown()
 for i in range(3, 12):
     draw_shape(i)
 
+colours = [
+    "CornflowerBlue",
+    "DarkOrchid",
+    "IndianRed",
+    "DeepSkyBlue",
+    "LightSeaGreen",
+    "wheat",
+    "SlateGray",
+    "SeaGreen",
+]
+
+
 screen = Screen()
 screen.exitonclick()
