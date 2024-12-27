@@ -23,7 +23,12 @@ for i in range(10):
 
 turtle_t.setpos(0, 0)
 
+turtle_t.pendown()
 # Draw other shapes
+for i in range(3, 12):
+    for j in range(i):
+        turtle_t.forward(10)
+        turtle_t.right(360 / i)
 
 screen = Screen()
 screen.exitonclick()
