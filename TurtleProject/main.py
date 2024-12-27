@@ -27,7 +27,7 @@ turtle_t.pendown()
 # Draw other shapes
 for i in range(3, 12):
     for j in range(i):
-        turtle_t.forward(10)
+        turtle_t.forward(50)
         turtle_t.right(360 / i)
 
 screen = Screen()
