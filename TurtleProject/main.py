@@ -47,6 +47,7 @@ colours = [
     "SeaGreen",
 ]
 
+directions = [0, 90, 180, 270]
 
 screen = Screen()
 screen.exitonclick()
