@@ -4,9 +4,10 @@ turtle_t = Turtle()
 
 
 def draw_shape(num_side):
-    for j in range(i):
+    angle = 360 / num_side
+    for j in range(num_side):
         turtle_t.forward(50)
-        turtle_t.right(360 / i)
+        turtle_t.right(angle)
 
 
 # Draw square
