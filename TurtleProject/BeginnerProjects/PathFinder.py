@@ -55,6 +55,8 @@ height = 21  # Maze height (must be odd)
 maze = generate_maze(width, height)
 print_maze(maze)
 
+def draw_map(maze):
+
 
 screen = Screen()
 screen.exitonclick()
