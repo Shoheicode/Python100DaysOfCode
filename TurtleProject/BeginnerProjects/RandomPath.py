@@ -1,3 +1,8 @@
+import random
+from turtle import Screen, Turtle
+
+turtle_t = Turtle()
+
 # Drawing the color lines
 
 colours = [
