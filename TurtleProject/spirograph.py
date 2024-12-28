@@ -1,4 +1,4 @@
 import turtle as t
 import random
 
-tim = t.Turtle()
+turt = t.Turtle()
