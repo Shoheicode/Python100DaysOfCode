@@ -3,6 +3,7 @@ import random
 from turtle import Screen, Turtle
 
 turtle_t = Turtle()
+turtle_t.turtlesize(0.5)
 turtle_t.hideturtle()
 turtle_t.speed(0)
 
@@ -85,6 +86,7 @@ def draw_map(maze):
                 turtle_t.pendown()
                 draw_square()
             elif row == height - 2 and x == width - 2:
+                turtle_t.setpos(x * 10, row * 10)
                 turtle_t.pendown()
                 turtle_t.color("blue")
                 draw_square()
@@ -155,9 +157,8 @@ def go_through_maze(maze):
             if currentDis - 1 == maze[curY + dy][curX + dx]:
                 x = x + dx
                 y = y + dy
-                turtle_t.setpos((x * 10), (y * 10))
+                turtle_t.setpos((x * 10) + 5, (y * 10) - 5)
                 q.put((x, y))
-            # print(currentDis)
         dis = dis + 1
     # print("FINISH MAZE")
 
@@ -165,4 +166,5 @@ def go_through_maze(maze):
 go_through_maze(maze)
 
 screen = Screen()
+screen.tracer(0)
 screen.exitonclick()
