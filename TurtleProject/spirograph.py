@@ -16,11 +16,11 @@ def rand_color():
 
 turt.speed("fastest")
 num_of_circles = 100
-
+radius = 100
 for cir in range(num_of_circles):
     turt.color(rand_color())
     turt.setheading((360 / num_of_circles) * cir)
-    turt.circle(100)
+    turt.circle(radius)
 
 screen = Screen()
 screen.exitonclick()
