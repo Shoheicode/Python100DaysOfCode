@@ -22,13 +22,31 @@ def generate_maze(width, height):
                 carve(nx, ny)
 
     # Start carving from a random point
-    start_x, start_y = random.randrange(1, width, 2), random.randrange(1, height, 2)
+    start_x, start_y = (
+        1,
+        1,
+    )  # random.randrange(1, width, 2), random.randrange(1, height, 2)
     carve(start_x, start_y)
+
+    maze[1][1] = 3  # Start point
+    maze[height - 2][width - 2] = 4  # End point
+
+    return maze
 
 
 def print_maze(maze):
     for row in maze:
-        print("".join("#" if cell == 1 else " " for cell in row))
+        st = ""
+        for cell in row:
+            if cell == 1:
+                st = st + "X"
+            elif cell == 3:
+                st = st + "S"
+            elif cell == 4:
+                st = st + "E"
+            else:
+                st = st + " "
+        print(st)
 
 
 # Example usage
