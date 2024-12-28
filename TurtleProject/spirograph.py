@@ -17,6 +17,7 @@ def rand_color():
 turt.speed("fastest")
 for i in range(100):
     turt.color(rand_color())
+    turt.setheading((360 / 100) * i)
     turt.circle(100)
 
 screen = Screen()
