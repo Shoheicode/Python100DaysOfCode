@@ -114,7 +114,13 @@ def solve_maze(maze):
 
 solve_maze(maze)
 
-print_maze(maze)
+
+def go_through_maze(maze):
+    turtle_t.setpos(1, 1)
+    directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+
+    endpos = (width - 2, height - 2)
+
 
 screen = Screen()
 screen.exitonclick()
