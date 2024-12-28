@@ -15,6 +15,7 @@ def rand_color():
 
 
 turt.speed("fastest")
+turt.color(rand_color())
 turt.circle(100)
 
 screen = Screen()
