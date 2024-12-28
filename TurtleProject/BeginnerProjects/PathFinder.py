@@ -2,6 +2,7 @@ import random
 from turtle import Screen, Turtle
 
 turtle_t = Turtle()
+turtle_t.speed(0)
 
 
 def generate_maze(width, height):
@@ -75,11 +76,14 @@ def draw_map(maze):
                 turtle_t.setpos(x * 10, row * 10)
                 turtle_t.pendown()
                 draw_square()
+            turtle_t.penup()
             # turtle_t.shape("square")
         turtle_t.penup()
 
-
 draw_map(maze)
+
+def solve_maze():
+    
 
 screen = Screen()
 screen.exitonclick()
