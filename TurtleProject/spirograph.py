@@ -15,8 +15,9 @@ def rand_color():
 
 
 turt.speed("fastest")
-turt.color(rand_color())
-turt.circle(100)
+for i in range(100):
+    turt.color(rand_color())
+    turt.circle(100)
 
 screen = Screen()
 screen.exitonclick()
