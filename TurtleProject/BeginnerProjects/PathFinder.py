@@ -135,8 +135,8 @@ def go_through_maze(maze):
     turtle_t.penup()
     turtle_t.setpos(1, 1)
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-    x = (1 * 10) + 5
-    y = (1 * -10) - 5
+    x = 1  # (1 * 10) + 5
+    y = 1  # (1 * 10) - 5
     endpos = (width - 2, height - 2)
 
     dis = 0
