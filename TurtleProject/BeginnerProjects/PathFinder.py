@@ -56,10 +56,21 @@ maze = generate_maze(width, height)
 print_maze(maze)
 
 
+def draw_square():
+    # Draw square
+    turtle_t.forward(50)
+    turtle_t.right(90)
+    turtle_t.forward(50)
+    turtle_t.right(90)
+    turtle_t.forward(50)
+    turtle_t.right(90)
+    turtle_t.forward(50)
+
+
 def draw_map(maze):
-    for row in maze:
-        for x in row:
-            turtle_t.setpos(x, row)
+    for row in range(len(maze)):
+        for x in range(len(maze[row])):
+            turtle_t.setpos(x * 10, row * 10)
             turtle_t.shape("square")
 
 
