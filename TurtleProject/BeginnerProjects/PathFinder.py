@@ -3,6 +3,7 @@ import random
 from turtle import Screen, Turtle
 
 turtle_t = Turtle()
+turtle_t.hideturtle()
 turtle_t.speed(0)
 
 
@@ -32,8 +33,8 @@ def generate_maze(width, height):
     )  # random.randrange(1, width, 2), random.randrange(1, height, 2)
     carve(start_x, start_y)
 
-    maze[1][1] = -2  # Start point
-    maze[height - 2][width - 2] = -3  # End point
+    # maze[1][1] = -2  # Start point
+    # maze[height - 2][width - 2] = -3  # End point
 
     return maze
 
@@ -78,10 +79,16 @@ def draw_square():
 def draw_map(maze):
     for row in range(len(maze)):
         for x in range(len(maze[row])):
-            if maze[row][x] == 1:
+            if maze[row][x] == -1:
                 turtle_t.setpos(x * 10, row * 10)
+                turtle_t.color("black")
                 turtle_t.pendown()
                 draw_square()
+            elif row == height - 2 and x == width - 2:
+                turtle_t.pendown()
+                turtle_t.color("blue")
+                draw_square()
+                print("HEY", row, x)
             turtle_t.penup()
             # turtle_t.shape("square")
         turtle_t.penup()
@@ -93,20 +100,22 @@ draw_map(maze)
 def solve_maze(maze):
 
     qu = queue.Queue()
-    qu.put((1, 1))
 
-    maze[1][1] = 0
+    endpos = (width - 2, height - 2)
+    qu.put(endpos)
+
+    maze[endpos[1]][endpos[0]] = 0
 
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
     while not qu.empty():
         val = qu.get()
-        print("VAL", val)
+        # print("VAL", val)
         for dx, dy in directions:
             x = val[0] + dx
             y = val[1] + dy
 
-            print("(", x, ",", y, ")")
+            # print("(", x, ",", y, ")")
             if maze[y][x] == float("inf"):
                 qu.put((x, y))
                 maze[y][x] = maze[val[1]][val[0]] + 1
@@ -114,13 +123,46 @@ def solve_maze(maze):
 
 solve_maze(maze)
 
+print_maze(maze)
+
+print(maze[height - 2][width - 2])
+
 
 def go_through_maze(maze):
+    turtle_t.speed("slowest")
+    turtle_t.showturtle()
+    turtle_t.penup()
     turtle_t.setpos(1, 1)
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-
+    x = 1
+    y = 1
     endpos = (width - 2, height - 2)
 
+    dis = 0
+    q = queue.Queue()
+    q.put((x, y))
+
+    while not q.empty():
+        if dis == 999:
+            break
+        val = q.get()
+        if val == endpos:
+            break
+        for dx, dy in directions:
+            curX = val[0]
+            curY = val[1]
+            currentDis = maze[curY][curX]
+            if currentDis - 1 == maze[curY + dy][curX + dx]:
+                x = x + dx
+                y = y + dy
+                turtle_t.setpos((x * 10), (y * 10))
+                q.put((x, y))
+            # print(currentDis)
+        dis = dis + 1
+    # print("FINISH MAZE")
+
+
+go_through_maze(maze)
 
 screen = Screen()
 screen.exitonclick()
