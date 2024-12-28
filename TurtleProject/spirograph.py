@@ -14,6 +14,7 @@ def rand_color():
     return random_color
 
 
+# Set the speed of the turtle
 turt.speed("fastest")
 num_of_circles = 200
 radius = 100
