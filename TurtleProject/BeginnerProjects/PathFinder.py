@@ -71,9 +71,10 @@ def draw_square():
 def draw_map(maze):
     for row in range(len(maze)):
         for x in range(len(maze[row])):
-            turtle_t.setpos(x * 10, row * 10)
-            turtle_t.pendown()
-            draw_square()
+            if maze[row][x] == 1:
+                turtle_t.setpos(x * 10, row * 10)
+                turtle_t.pendown()
+                draw_square()
             # turtle_t.shape("square")
         turtle_t.penup()
 
