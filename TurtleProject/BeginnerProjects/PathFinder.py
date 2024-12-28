@@ -81,12 +81,12 @@ def draw_map(maze):
     for row in range(len(maze)):
         for x in range(len(maze[row])):
             if maze[row][x] == -1:
-                turtle_t.setpos(x * 10, row * 10)
+                turtle_t.setpos(x * 10, row * -10)
                 turtle_t.color("black")
                 turtle_t.pendown()
                 draw_square()
             elif row == height - 2 and x == width - 2:
-                turtle_t.setpos(x * 10, row * 10)
+                turtle_t.setpos(x * 10, row * -10)
                 turtle_t.pendown()
                 turtle_t.color("blue")
                 draw_square()
@@ -160,7 +160,6 @@ def go_through_maze(maze):
                 turtle_t.setpos((x * 10) + 5, (y * 10) - 5)
                 q.put((x, y))
         dis = dis + 1
-    # print("FINISH MAZE")
 
 
 go_through_maze(maze)
