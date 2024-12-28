@@ -15,7 +15,7 @@ def rand_color():
 
 
 turt.speed("fastest")
-num_of_circles = 100
+num_of_circles = 200
 radius = 100
 for cir in range(num_of_circles):
     turt.color(rand_color())
