@@ -58,20 +58,24 @@ print_maze(maze)
 
 def draw_square():
     # Draw square
-    turtle_t.forward(50)
+    turtle_t.forward(10)
     turtle_t.right(90)
-    turtle_t.forward(50)
+    turtle_t.forward(10)
     turtle_t.right(90)
-    turtle_t.forward(50)
+    turtle_t.forward(10)
     turtle_t.right(90)
-    turtle_t.forward(50)
+    turtle_t.forward(10)
+    turtle_t.right(90)
 
 
 def draw_map(maze):
     for row in range(len(maze)):
         for x in range(len(maze[row])):
             turtle_t.setpos(x * 10, row * 10)
-            turtle_t.shape("square")
+            turtle_t.pendown()
+            draw_square()
+            # turtle_t.shape("square")
+        turtle_t.penup()
 
 
 draw_map(maze)
