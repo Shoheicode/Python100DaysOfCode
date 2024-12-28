@@ -112,7 +112,6 @@ def solve_maze(maze):
 
     while not qu.empty():
         val = qu.get()
-        # print("VAL", val)
         for dx, dy in directions:
             x = val[0] + dx
             y = val[1] + dy
