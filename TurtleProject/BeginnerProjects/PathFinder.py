@@ -133,7 +133,7 @@ def go_through_maze(maze):
     turtle_t.speed("slowest")
     turtle_t.showturtle()
     turtle_t.penup()
-    turtle_t.setpos(1, 1)
+    turtle_t.setpos((1 * 10) + 5, (1 * -10) + 5)
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
     x = 1  # (1 * 10) + 5
     y = 1  # (1 * 10) - 5
