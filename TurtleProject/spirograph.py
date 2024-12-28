@@ -1,5 +1,6 @@
 import turtle as t
 import random
+from turtle import Screen
 
 turt = t.Turtle()
 t.colormode(255)
@@ -14,3 +15,7 @@ def rand_color():
 
 
 turt.speed("fastest")
+turt.circle(100)
+
+screen = Screen()
+screen.exitonclick()
