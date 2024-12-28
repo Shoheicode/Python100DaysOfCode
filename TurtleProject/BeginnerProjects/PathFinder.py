@@ -15,7 +15,7 @@ def generate_maze(width, height):
 
     # Helper function to carve out the maze
     def carve(x, y):
-        maze[y][x] = 0
+        maze[y][x] = float("inf")
         random.shuffle(directions)
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
@@ -49,7 +49,10 @@ def print_maze(maze):
             elif cell == -3:
                 st = st + "E"
             else:
-                st = st + " "
+                if cell == float("inf"):
+                    st = st + " "
+                else:
+                    st = st + str(cell)
         print(st)
 
 
@@ -90,11 +93,28 @@ draw_map(maze)
 def solve_maze(maze):
 
     qu = queue.Queue()
-    qu.put((1,1))
+    qu.put((1, 1))
+
+    maze[1][1] = 0
+
+    directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
     while not qu.empty():
-        
+        val = qu.get()
+        print("VAL", val)
+        for dx, dy in directions:
+            x = val[0] + dx
+            y = val[1] + dy
 
+            print("(", x, ",", y, ")")
+            if maze[y][x] == float("inf"):
+                qu.put((x, y))
+                maze[y][x] = maze[val[1]][val[0]] + 1
+
+
+solve_maze(maze)
+
+print_maze(maze)
 
 screen = Screen()
 screen.exitonclick()
