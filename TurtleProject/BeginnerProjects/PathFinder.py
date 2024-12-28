@@ -137,7 +137,7 @@ def go_through_maze(maze):
     turtle_t.setpos(1, 1)
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
     x = (1 * 10) + 5
-    y = (1 * 10) - 5
+    y = (1 * -10) - 5
     endpos = (width - 2, height - 2)
 
     dis = 0
@@ -157,7 +157,7 @@ def go_through_maze(maze):
             if currentDis - 1 == maze[curY + dy][curX + dx]:
                 x = x + dx
                 y = y + dy
-                turtle_t.setpos((x * 10) + 5, (y * 10) - 5)
+                turtle_t.setpos((x * 10) + 5, (y * -10) - 5)
                 q.put((x, y))
         dis = dis + 1
 
