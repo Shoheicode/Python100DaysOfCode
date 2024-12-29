@@ -129,6 +129,7 @@ print_maze(maze)
 print(maze[height - 2][width - 2])
 
 
+# Go through the maze using breadth first search
 def go_through_maze(maze):
     turtle_t.speed("slowest")
     turtle_t.showturtle()
