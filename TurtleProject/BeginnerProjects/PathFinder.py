@@ -169,6 +169,7 @@ def go_through_maze(maze):
 
         # Check for each of the direction that the turtle can move to the next position
         for dx, dy in directions:
+            # Set the current position of the turtle
             curX = val[0]
             curY = val[1]
             currentDis = maze[curY][curX]
