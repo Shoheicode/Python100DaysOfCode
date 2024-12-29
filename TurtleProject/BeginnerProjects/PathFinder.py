@@ -116,7 +116,6 @@ def solve_maze(maze):
             x = val[0] + dx
             y = val[1] + dy
 
-            # print("(", x, ",", y, ")")
             if maze[y][x] == float("inf"):
                 qu.put((x, y))
                 maze[y][x] = maze[val[1]][val[0]] + 1
