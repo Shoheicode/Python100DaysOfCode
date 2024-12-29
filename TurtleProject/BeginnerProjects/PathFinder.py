@@ -154,6 +154,7 @@ def go_through_maze(maze):
     # Put the starting position in the queue
     q.put((x, y))
 
+    # While the queue is not empty, move the turtle to the next position
     while not q.empty():
         if dis == 999:
             break
