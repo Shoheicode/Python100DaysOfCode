@@ -64,31 +64,32 @@ height = 21  # Maze height (must be odd)
 maze = generate_maze(width, height)
 
 
-def draw_square():
+def draw_square(size=10):
     # Draw square
-    turtle_t.forward(10)
+    turtle_t.forward(size)
     turtle_t.right(90)
-    turtle_t.forward(10)
+    turtle_t.forward(size)
     turtle_t.right(90)
-    turtle_t.forward(10)
+    turtle_t.forward(size)
     turtle_t.right(90)
-    turtle_t.forward(10)
+    turtle_t.forward(size)
     turtle_t.right(90)
 
 
 def draw_map(maze):
+    turtle_t.penup()
     for row in range(len(maze)):
         for x in range(len(maze[row])):
             if maze[row][x] == -1:
-                turtle_t.setpos(x * 10, row * -10)
+                turtle_t.setpos((x * 20) - 200, (row * -20) + 250)
                 turtle_t.color("black")
                 turtle_t.pendown()
-                draw_square()
+                draw_square(20)
             elif row == height - 2 and x == width - 2:
-                turtle_t.setpos(x * 10, row * -10)
+                turtle_t.setpos((x * 20) - 200, (row * -20) + 250)
                 turtle_t.pendown()
                 turtle_t.color("blue")
-                draw_square()
+                draw_square(20)
                 print("HEY", row, x)
             turtle_t.penup()
             # turtle_t.shape("square")
@@ -132,7 +133,7 @@ def go_through_maze(maze):
     turtle_t.penup()
 
     # Set the starting position of the turtle
-    turtle_t.setpos((1 * 10) + 5, (1 * -10) + 5)
+    turtle_t.setpos((1 * 20) + 10, (1 * -20) + 10)
 
     # Define the directions the turtle can move
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
@@ -174,7 +175,7 @@ def go_through_maze(maze):
                 # set the current position to the next position
                 x = x + dx
                 y = y + dy
-                turtle_t.setpos((x * 10) + 5, (y * -10) - 5)
+                turtle_t.setpos((x * 20) + 10, (y * -20) - 10)
 
                 # Put the next position in the queue
                 q.put((x, y))
@@ -185,5 +186,6 @@ def go_through_maze(maze):
 go_through_maze(maze)
 
 screen = Screen()
+print(screen.screensize())
 screen.tracer(0)
 screen.exitonclick()
