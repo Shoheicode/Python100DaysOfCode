@@ -172,12 +172,18 @@ def go_through_maze(maze):
             # Set the current position of the turtle
             curX = val[0]
             curY = val[1]
+
             currentDis = maze[curY][curX]
+            # Check if the next position is the next distance
             if currentDis - 1 == maze[curY + dy][curX + dx]:
+                # set the current position to the next position
                 x = x + dx
                 y = y + dy
                 turtle_t.setpos((x * 10) + 5, (y * -10) - 5)
+
+                # Put the next position in the queue
                 q.put((x, y))
+        # Increase the distance
         dis = dis + 1
 
 
