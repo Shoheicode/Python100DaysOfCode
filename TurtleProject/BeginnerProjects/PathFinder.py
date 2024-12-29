@@ -147,8 +147,11 @@ def go_through_maze(maze):
     y = 1
     endpos = (width - 2, height - 2)
 
+    # Set the distance to 0 and create a queue
     dis = 0
     q = queue.Queue()
+
+    # Put the starting position in the queue
     q.put((x, y))
 
     while not q.empty():
