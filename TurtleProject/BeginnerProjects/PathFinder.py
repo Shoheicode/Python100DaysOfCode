@@ -167,6 +167,7 @@ def go_through_maze(maze):
         if val == endpos:
             break
 
+        # Check for each of the direction that the turtle can move to the next position
         for dx, dy in directions:
             curX = val[0]
             curY = val[1]
