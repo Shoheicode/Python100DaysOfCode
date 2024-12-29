@@ -133,7 +133,7 @@ def go_through_maze(maze):
     turtle_t.penup()
 
     # Set the starting position of the turtle
-    turtle_t.setpos((1 * 20) + 10, (1 * -20) + 10)
+    turtle_t.setpos((1 * 20) + 10 - 200, (1 * -20) - 10 + 250)
 
     # Define the directions the turtle can move
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
@@ -175,7 +175,7 @@ def go_through_maze(maze):
                 # set the current position to the next position
                 x = x + dx
                 y = y + dy
-                turtle_t.setpos((x * 20) + 10, (y * -20) - 10)
+                turtle_t.setpos((x * 20) + 10 - 200, (y * -20) - 10 + 250)
 
                 # Put the next position in the queue
                 q.put((x, y))
