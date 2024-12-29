@@ -131,10 +131,15 @@ print(maze[height - 2][width - 2])
 
 # Go through the maze using breadth first search
 def go_through_maze(maze):
+    # Set the properties of the turtle
     turtle_t.speed("slowest")
     turtle_t.showturtle()
     turtle_t.penup()
+
+    # Set the starting position of the turtle
     turtle_t.setpos((1 * 10) + 5, (1 * -10) + 5)
+
+    # Define the directions the turtle can move
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
     x = 1
     y = 1
