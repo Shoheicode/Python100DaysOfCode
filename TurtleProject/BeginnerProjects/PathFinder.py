@@ -141,6 +141,8 @@ def go_through_maze(maze):
 
     # Define the directions the turtle can move
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+
+    # Set the starting position of the turtle in the array and ending position
     x = 1
     y = 1
     endpos = (width - 2, height - 2)
