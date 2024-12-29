@@ -156,11 +156,17 @@ def go_through_maze(maze):
 
     # While the queue is not empty, move the turtle to the next position
     while not q.empty():
+        # if the distance is 999, break the loop that way if the turle doesn't reach the end, it stops
         if dis == 999:
             break
+
+        # Get the next position from the queue
         val = q.get()
+
+        # If the position is the end position, break the loop
         if val == endpos:
             break
+
         for dx, dy in directions:
             curX = val[0]
             curY = val[1]
