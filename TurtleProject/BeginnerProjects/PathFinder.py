@@ -99,9 +99,9 @@ def draw_map(maze, start, end):
     turtle_t.color("red")
     draw_square(20)
 
-    turtle_t.setpos((start[0] * 20) - 200, (start[1] * -20) + 250)
+    turtle_t.setpos((end[0] * 20) - 200, (end[1] * -20) + 250)
     turtle_t.pendown()
-    turtle_t.color("red")
+    turtle_t.color("blue")
     draw_square(20)
 
 
