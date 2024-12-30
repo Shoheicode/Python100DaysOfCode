@@ -108,7 +108,7 @@ def draw_map(maze, start, end):
 draw_map(maze, start, end)
 
 
-def solve_maze(maze):
+def solve_maze_bfs(maze):
 
     qu = queue.Queue()
 
@@ -130,7 +130,7 @@ def solve_maze(maze):
                 maze[y][x] = maze[val[1]][val[0]] + 1
 
 
-solve_maze(maze)
+solve_maze_bfs(maze)
 
 
 # Go through the maze using breadth first search
