@@ -1,5 +1,6 @@
 import queue
 import random
+import time
 from turtle import Screen, Turtle
 
 turtle_t = Turtle()
@@ -62,10 +63,11 @@ def print_maze(maze):
 
 
 # Example usage
-width = 21  # Maze width (must be odd)
-height = 21  # Maze height (must be odd)
+width = 100  # Maze width (must be odd)
+height = 100  # Maze height (must be odd)
 start = (1, 1)  # Start point
 end = (width - 2, height - 2)  # End point
+cubeS = 10
 maze = generate_maze(width, height, start, end)
 maze1 = maze.copy()
 maze2 = maze.copy()
@@ -99,14 +101,14 @@ def draw_map(maze, start, end):
     turtle_t.setpos((end[0] * 20) - 200, (end[1] * -20) + 250)
     turtle_t.pendown()
     turtle_t.color("blue")
-    draw_square(20)
+    draw_square(cubeS)
 
     turtle_t.penup()
 
     turtle_t.setpos((start[0] * 20) - 200, (start[1] * -20) + 250)
     turtle_t.pendown()
     turtle_t.color("red")
-    draw_square(20)
+    draw_square(cubeS)
 
 
 draw_map(maze, start, end)
@@ -134,35 +136,37 @@ def solve_maze_bfs(maze):
                 maze[y][x] = maze[val[1]][val[0]] + 1
 
 
-def solve_maze_dijikstra(maze):
+def solve_maze_dfs(maze):
     # set a list called distance to store the distance being infinity
-    dis = [float("inf")] * len(adj)
-    prev = [None] * len(adj)
-    dis[s] = 0
+    stack = []
+    stack.append(end)
 
-    priorityQ = queue.PriorityQueue()
-    priorityQ.put((0, s))
+    maze[end[1]][end[0]] = 0
 
-    while not priorityQ.empty():
-        disT, minIn = priorityQ.get()
+    directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
-        for i in range(len(cost[minIn])):
-            v = adj[minIn][i]
-            if dis[v] > dis[minIn] + cost[minIn][i]:
-                dis[v] = dis[minIn] + cost[minIn][i]
-                prev[v] = minIn
+    while len(stack) > 0:
+        val = stack.pop()
+        for dx, dy in directions:
+            x = val[0] + dx
+            y = val[1] + dy
 
-                priorityQ.put((dis[v], v))
-
-    # If the path does not exist, aka inf, the return minus 1
-    if dis[t] == float("inf"):
-        return -1
-    # write your code here
-    return dis[t]
+            if maze[y][x] == float("inf"):
+                stack.append((x, y))
+                maze[y][x] = maze[val[1]][val[0]] + 1
 
 
+start_time = time.time()
 solve_maze_bfs(maze1)
-solve_maze_dijikstra(maze2)
+end_time = time.time()
+
+print("Time taken: ", end_time - start_time)
+
+start_time = time.time()
+solve_maze_dfs(maze2)
+end_time = time.time()
+
+print("Time taken: ", end_time - start_time)
 
 
 # Go through the maze using breadth first search
