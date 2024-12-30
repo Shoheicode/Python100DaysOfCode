@@ -90,18 +90,6 @@ def draw_map(maze, start, end):
                 turtle_t.color("black")
                 turtle_t.pendown()
                 draw_square(20)
-            elif row == start[1] and x == start[0]:
-                turtle_t.setpos((x * 20) - 200, (row * -20) + 250)
-                turtle_t.pendown()
-                turtle_t.color("red")
-                draw_square(20)
-                print("HEY", row, x)
-            elif row == end[1] and x == end[0]:
-                turtle_t.setpos((x * 20) - 200, (row * -20) + 250)
-                turtle_t.pendown()
-                turtle_t.color("blue")
-                draw_square(20)
-                print("HEY", row, x)
             turtle_t.penup()
             # turtle_t.shape("square")
         turtle_t.penup()
