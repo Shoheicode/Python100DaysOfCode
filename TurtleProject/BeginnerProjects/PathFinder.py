@@ -67,6 +67,8 @@ height = 21  # Maze height (must be odd)
 start = (1, 1)  # Start point
 end = (width - 2, height - 2)  # End point
 maze = generate_maze(width, height, start, end)
+maze1 = maze.copy()
+maze2 = maze.copy()
 
 
 def draw_square(size=10):
