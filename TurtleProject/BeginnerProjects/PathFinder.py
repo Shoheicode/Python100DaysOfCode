@@ -64,6 +64,8 @@ def print_maze(maze):
 # Example usage
 width = 21  # Maze width (must be odd)
 height = 21  # Maze height (must be odd)
+start = (1, 1)  # Start point
+end = (width - 2, height - 2)  # End point
 maze = generate_maze(width, height, (1, 1), (width - 2, height - 2))
 
 
@@ -105,7 +107,7 @@ def draw_map(maze, start, end):
         turtle_t.penup()
 
 
-draw_map(maze)
+draw_map(maze, start, end)
 
 
 def solve_maze(maze):
