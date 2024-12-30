@@ -130,6 +130,10 @@ def solve_maze_bfs(maze):
                 maze[y][x] = maze[val[1]][val[0]] + 1
 
 
+def solve_maze_dijikstra(maze):
+    return None
+
+
 solve_maze_bfs(maze)
 
 
