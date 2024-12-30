@@ -96,14 +96,16 @@ def draw_map(maze, start, end):
             # turtle_t.shape("square")
         turtle_t.penup()
 
-    turtle_t.setpos((start[0] * 20) - 200, (start[1] * -20) + 250)
-    turtle_t.pendown()
-    turtle_t.color("red")
-    draw_square(20)
-
     turtle_t.setpos((end[0] * 20) - 200, (end[1] * -20) + 250)
     turtle_t.pendown()
     turtle_t.color("blue")
+    draw_square(20)
+
+    turtle_t.penup()
+
+    turtle_t.setpos((start[0] * 20) - 200, (start[1] * -20) + 250)
+    turtle_t.pendown()
+    turtle_t.color("red")
     draw_square(20)
 
 
@@ -133,7 +135,30 @@ def solve_maze_bfs(maze):
 
 
 def solve_maze_dijikstra(maze):
-    return None
+    # set a list called distance to store the distance being infinity
+    dis = [float("inf")] * len(adj)
+    prev = [None] * len(adj)
+    dis[s] = 0
+
+    priorityQ = queue.PriorityQueue()
+    priorityQ.put((0, s))
+
+    while not priorityQ.empty():
+        disT, minIn = priorityQ.get()
+
+        for i in range(len(cost[minIn])):
+            v = adj[minIn][i]
+            if dis[v] > dis[minIn] + cost[minIn][i]:
+                dis[v] = dis[minIn] + cost[minIn][i]
+                prev[v] = minIn
+
+                priorityQ.put((dis[v], v))
+
+    # If the path does not exist, aka inf, the return minus 1
+    if dis[t] == float("inf"):
+        return -1
+    # write your code here
+    return dis[t]
 
 
 solve_maze_bfs(maze1)
