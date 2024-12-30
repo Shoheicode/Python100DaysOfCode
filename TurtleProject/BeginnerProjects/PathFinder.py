@@ -37,8 +37,8 @@ def generate_maze(width, height, start=(1, 1), end=(1, 1)):
     # maze[1][1] = -2  # Start point
     # maze[height - 2][width - 2] = -3  # End point
 
-    maze[start[0]][start[1]] = 0
-    maze[end[0]][end[1]] = 0
+    maze[start[0]][start[1]] = float("inf")
+    maze[end[0]][end[1]] = float("inf")
 
     return maze
 
@@ -79,7 +79,7 @@ def draw_square(size=10):
     turtle_t.right(90)
 
 
-def draw_map(maze):
+def draw_map(maze, start, end):
     turtle_t.penup()
     for row in range(len(maze)):
         for x in range(len(maze[row])):
@@ -88,6 +88,12 @@ def draw_map(maze):
                 turtle_t.color("black")
                 turtle_t.pendown()
                 draw_square(20)
+            elif row == height - 2 and x == width - 2:
+                turtle_t.setpos((x * 20) - 200, (row * -20) + 250)
+                turtle_t.pendown()
+                turtle_t.color("blue")
+                draw_square(20)
+                print("HEY", row, x)
             elif row == height - 2 and x == width - 2:
                 turtle_t.setpos((x * 20) - 200, (row * -20) + 250)
                 turtle_t.pendown()
