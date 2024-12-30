@@ -136,7 +136,8 @@ def solve_maze_dijikstra(maze):
     return None
 
 
-solve_maze_bfs(maze)
+solve_maze_bfs(maze1)
+solve_maze_dijikstra(maze2)
 
 
 # Go through the maze using breadth first search
@@ -197,7 +198,7 @@ def go_through_maze(maze):
         dis = dis + 1
 
 
-go_through_maze(maze)
+go_through_maze(maze1)
 
 screen = Screen()
 print(screen.screensize())
