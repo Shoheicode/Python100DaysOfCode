@@ -8,7 +8,7 @@ turtle_t.hideturtle()
 turtle_t.speed(0)
 
 
-def generate_maze(width, height):
+def generate_maze(width, height, start=(1, 1), end=(1, 1)):
     # Define the maze grid
     maze = [[-1 for _ in range(width)] for _ in range(height)]
 
@@ -37,6 +37,9 @@ def generate_maze(width, height):
     # maze[1][1] = -2  # Start point
     # maze[height - 2][width - 2] = -3  # End point
 
+    maze[start[0]][start[1]] = 0
+    maze[end[0]][end[1]] = 0
+
     return maze
 
 
@@ -61,7 +64,7 @@ def print_maze(maze):
 # Example usage
 width = 21  # Maze width (must be odd)
 height = 21  # Maze height (must be odd)
-maze = generate_maze(width, height)
+maze = generate_maze(width, height, (1, 1), (width - 2, height - 2))
 
 
 def draw_square(size=10):
