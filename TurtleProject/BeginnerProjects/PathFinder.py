@@ -1,5 +1,6 @@
 import queue
 import random
+import sys
 import time
 from turtle import Screen, Turtle
 
@@ -7,6 +8,8 @@ turtle_t = Turtle()
 turtle_t.turtlesize(0.5)
 turtle_t.hideturtle()
 turtle_t.speed(0)
+
+sys.setrecursionlimit(2000)
 
 
 def generate_maze(width, height, start=(1, 1), end=(1, 1)):
@@ -90,22 +93,22 @@ def draw_map(maze, start, end):
     for row in range(len(maze)):
         for x in range(len(maze[row])):
             if maze[row][x] == -1:
-                turtle_t.setpos((x * 20) - 200, (row * -20) + 250)
+                turtle_t.setpos((x * cubeS) - 200, (row * -cubeS) + 250)
                 turtle_t.color("black")
                 turtle_t.pendown()
-                draw_square(20)
+                draw_square(cubeS)
             turtle_t.penup()
             # turtle_t.shape("square")
         turtle_t.penup()
 
-    turtle_t.setpos((end[0] * 20) - 200, (end[1] * -20) + 250)
+    turtle_t.setpos((end[0] * cubeS) - 200, (end[1] * -cubeS) + 250)
     turtle_t.pendown()
     turtle_t.color("blue")
     draw_square(cubeS)
 
     turtle_t.penup()
 
-    turtle_t.setpos((start[0] * 20) - 200, (start[1] * -20) + 250)
+    turtle_t.setpos((start[0] * cubeS) - 200, (start[1] * -cubeS) + 250)
     turtle_t.pendown()
     turtle_t.color("red")
     draw_square(cubeS)
@@ -177,7 +180,7 @@ def go_through_maze(maze):
     turtle_t.penup()
 
     # Set the starting position of the turtle
-    turtle_t.setpos((1 * 20) + 10 - 200, (1 * -20) - 10 + 250)
+    turtle_t.setpos((1 * cubeS) + 10 - 200, (1 * -cubeS) - 10 + 250)
 
     # Define the directions the turtle can move
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
@@ -219,7 +222,7 @@ def go_through_maze(maze):
                 # set the current position to the next position
                 x = x + dx
                 y = y + dy
-                turtle_t.setpos((x * 20) + 10 - 200, (y * -20) - 10 + 250)
+                turtle_t.setpos((x * cubeS) + 10 - 200, (y * -cubeS) - 10 + 250)
 
                 # Put the next position in the queue
                 q.put((x, y))
